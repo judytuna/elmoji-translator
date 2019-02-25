@@ -4,6 +4,7 @@ import Browser
 import Html
 import Html.Attributes
 import Html.Events
+import EmojiConverter
 
 
 
@@ -83,6 +84,10 @@ view model =
                 ]
             , Html.p
                 [ Html.Attributes.class "center output-text emoji-size" ]
-                [ Html.text model.currentText ]
+                [ Html.text (translateText model) ]
             ]
         ]
+
+translateText: Model -> String
+translateText model =
+    EmojiConverter.textToEmoji "🙍" model.currentText

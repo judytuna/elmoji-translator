@@ -44,8 +44,7 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         SetCurrentText newText ->
-            -- currently, this does nothing!
-            model
+            { model | currentText = newText }
 
 
 
@@ -83,4 +82,8 @@ view model =
                     []
                 ]
             ]
+        , Html.p
+            [ Html.Attributes.class "center output-text emoji-size" ]
+            [ Html.text model.currentText ]
         ]
+
